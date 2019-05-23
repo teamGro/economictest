@@ -1,6 +1,7 @@
 import { progress, getCurrentLevel } from '../src/utils';
 import createResultView from './resultView';
 import Question from '../questions/questHandler';
+import {Sharer} from '../src/sharer';
 
 export default class Result {
   constructor () {
@@ -17,6 +18,15 @@ export default class Result {
   init () {
     this.getLayout();
     this.repeat();
+    let links = document.querySelectorAll('.socials__link');
+    window.Sharer.init();
+    for (let link of links) {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.Sharer.init();
+      });
+    }
+
     return;
   }
 

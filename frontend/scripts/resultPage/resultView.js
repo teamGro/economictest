@@ -1,8 +1,6 @@
 import {allLevels, progress} from '../src/utils';
-// import {Share} from './resultHandler';
-let data = window.testData;
-let site = 'http://localhost:3000';
-let title = 'Как хорошо вы разбираетесь в новостях бизнеса';
+let url = 'https://economictest.herokuapp.com';
+let title = '"Как хорошо вы разбираетесь в новостях бизнеса"';
 
 function addImgWithAlt (str) {
   return str;
@@ -49,7 +47,7 @@ export default function createResultView (obj) {
         <ul class="test__socials socials">
 
           <li class="socials__item">
-            <a class="socials__link" href="http://www.facebook.com/sharer/sharer.php?s=100&p%5Btitle%5D=${title}&p%5Burl%5D=${site}" target="_blank">
+            <a class="socials__link" href="http://www.facebook.com" data-sharer="facebook" data-url=${url} target="_blank">
               <span class="visually-hidden">fb</span>
               <i class="socials__icon fab fa-facebook-f"></i>
               <span class="socials__text">Поделиться</span>
@@ -57,14 +55,14 @@ export default function createResultView (obj) {
           </li>
 
           <li class="socials__item">
-            <a class="socials__link" href="http://vk.com/share.php?url=${site}&title=${title}&image=${addImgWithAlt(imgBox.src)}&noparse=true" target="_blank">
+            <a class="socials__link" href="http://vk.com/" data-sharer="vk" data-title=${title} data-url=${url} target="_blank">
               <span class="visually-hidden">vk</span>
               <i class="socials__icon fab fa-vk"></i>
             </a>            
           </li>
 
           <li class="socials__item">
-            <a class="socials__link" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffiddle.jshell.net%2F_display%2F&text=${title}&url=${site}" target="_blank" >
+            <a class="socials__link" href="https:/twitter.com" data-sharer="twitter" data-title=${title} data-url=${url} target="_blank" >
               <span class="visually-hidden">twitter</span>
               <i class="socials__icon fab fa-twitter"></i>
             </a>
@@ -83,6 +81,12 @@ export default function createResultView (obj) {
     </div>
   `;
 }
+
+/*
+
+<button class="tw"  data-hashtags="awesome, sharer.js" >Share on Twitter</button>
+
+*/
 
 //
 
