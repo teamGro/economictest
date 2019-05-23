@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="preload" href="../frontend/assets/fonts/Roboto-Regular.ttf" as="font" type="font/ttf">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" integrity="sha384-oS3vJWv+0UjzBfQzYUhtDYW+Pj2yciDJxpsK1OYPAYjqT085Qq/1cq5FLXAZQ7Ay" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles/styles.css">
+    <script type="text/javascript">
+      function getData (url) {
+        let xhr = new XMLHttpRequest();
+        xhr.open('GET', '/getData', false);
+        xhr.send();
+        if (xhr.status != 200) {
+          // обработать ошибку
+          alert( xhr.status + ': ' + xhr.statusText ); // пример вывода: 404: Not Found
+        } else {
+          window.testData = JSON.parse(xhr.responseText);
+        }
+        return;
+      }
+
+       getData();
+    </script>
+    <title>Тест</title>
+  </head>
+  <body>
+    <div class="container"></div>
+    <script src='js/main.js'></script>
+  </body>
+</html>
