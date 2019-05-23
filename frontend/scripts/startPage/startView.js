@@ -1,5 +1,4 @@
 export default function createStartView (obj) {
-  console.log(obj);
   return `
     <div class="test">
 

@@ -5,7 +5,7 @@ let site = 'http://localhost:3000';
 let title = 'Как хорошо вы разбираетесь в новостях бизнеса';
 
 function addImgWithAlt (str) {
-  return str.substr(0);
+  return str;
 }
 
 export default function createResultView (obj) {
@@ -15,6 +15,7 @@ export default function createResultView (obj) {
   if (progress.success == 0) {
     text = 'Мне больше интересен футбол';
     imgBox.src = 'img/football.png';
+    imgBox.src2x = 'img/football@2x.png';
     imgBox.alt = '"Мне больше интересен футбол"';
     imgBox.myClassName = '"test__box box box--zero"';
   } else if (progress.success <= 3) {
@@ -82,6 +83,8 @@ export default function createResultView (obj) {
     </div>
   `;
 }
+
+//
 
 // <a onclick="Share.facebook('URL','TITLE','IMG_PATH','DESC')"> {шарь меня полностью}</a>
 
