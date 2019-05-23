@@ -58,20 +58,14 @@ gulp.task('js', () => {
       .pipe(gulp.dest('./public/js'));
 });
 
-gulp.task('images', function () {
-  return gulp.src('./forntend/assets/img/*.png')//, {since: gulp.lastRun('images')}//D:/tima/projects/vc-project/forntend/assets/optiImg
-      .pipe(imagemin({
-        progressive: true,
-        use: [pngquant()],
-        interlaced: true
-      }))
-      .pipe(gulp.dest('public/img'));
+gulp.task('getData', () => {
+  return gulp.src('frontend/scripts/src/downloadData.js')
+  .pipe(gulp.dest('public/js'));
 });
 
-gulp.task('webp', function () {
-  return gulp.src('./forntend/assets/optiImg/*.jpg')
-  .pipe(webp({quality: 70}))
-  .pipe(gulp.dest('public/img/'));
+gulp.task('retina', () => {
+  return gulp.src('frontend/scripts/src/retina.min.js')
+  .pipe(gulp.dest('public/js'));
 });
 
 gulp.task('clean', () => {
@@ -87,11 +81,10 @@ gulp.task('watch', () => {
   gulp.watch('frontend/**/*.less', gulp.series('less'));
   gulp.watch('frontend/*.html', gulp.series('copy'));
   gulp.watch('frontend/scripts/**/*.js', gulp.series('js'));
-  // gulp.watch('frontend/assets/img/**/*.{png,svg,jpg}', gulp.series('images'));
-  // gulp.watch('./forntend/assets/optiImg/**/*.{png,jpg}', gulp.series('webp'));
+  gulp.watch('frontend/scripts/src/downloadData.js', gulp.series('getData'));
 });
 
-gulp.task('build', gulp.series('clean', gulp.parallel('less', 'copy', 'js')));
+gulp.task('build', gulp.series('clean', 'getData', gulp.parallel('less', 'copy', 'js', 'retina')));
 
 gulp.task('serve', () => {
   browserSync.init({
