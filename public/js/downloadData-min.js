@@ -1,0 +1,1 @@
+function getData(t){let e=new XMLHttpRequest;if(e.open("GET",t,!1),e.send(),200!=e.status)alert("Данные не загрузились, обновите страницу");else try{window.testData=JSON.parse(e.responseText)}catch(t){alert("Некорректный формат данных, обновите страницу")}return!1}getData("/getData");
