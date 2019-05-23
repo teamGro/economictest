@@ -3,6 +3,7 @@
 const gulp = require('gulp');
 const less = require('gulp-less');
 const concat = require('gulp-concat');
+var cssmin = require('gulp-cssmin');
 const sourcemaps = require('gulp-sourcemaps');
 const gulpIf = require('gulp-if');
 const del = require('del');
@@ -10,11 +11,12 @@ const browserSync = require('browser-sync').create();
 const notify = require('gulp-notify');
 const plumber = require('gulp-plumber');
 const rollup = require('gulp-rollup');
+const minify = require('gulp-minify');
 const remember = require('gulp-remember');
 const imagemin = require('gulp-imagemin');
 const pngquant = require('imagemin-pngquant');
 const webp = require('gulp-webp');
-const sass = require('gulp-sass');
+const htmlmin = require('gulp-htmlmin');
 
 let isDevelopment = !process.env.NODE_ENV || process.env.NODE_ENV == 'development';
 
@@ -33,6 +35,7 @@ gulp.task('less', () => {
   .pipe(less())
   .pipe(concat('styles.css'))
   .pipe(gulpIf(isDevelopment, sourcemaps.write()))
+  .pipe(cssmin())
   .pipe(gulp.dest('public/styles'));
 });
 
@@ -55,11 +58,13 @@ gulp.task('js', () => {
         }
       }))
       .pipe(gulpIf(isDevelopment, sourcemaps.write()))
+      .pipe(minify())
       .pipe(gulp.dest('./public/js'));
 });
 
 gulp.task('getData', () => {
   return gulp.src('frontend/scripts/src/downloadData.js')
+  .pipe(minify())
   .pipe(gulp.dest('public/js'));
 });
 
@@ -74,6 +79,7 @@ gulp.task('clean', () => {
 
 gulp.task('copy', () => {
   return gulp.src('frontend/*.html')
+  .pipe(htmlmin({ collapseWhitespace: true }))
   .pipe(gulp.dest('public'));
 });
 
