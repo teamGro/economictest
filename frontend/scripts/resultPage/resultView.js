@@ -77,10 +77,9 @@ export default function createResultView (obj) {
       </div>
 
       <div class=${addImgWithAlt(imgBox.myClassName)}>
-        <img class="box__img" src=${addImgWithAlt(imgBox.src)} alt=${addImgWithAlt(imgBox.alt)}>
+        <img class="box__img" src=${addImgWithAlt(imgBox.src)} alt=${addImgWithAlt(imgBox.alt)} data-rjs="3">
       </div>
     </div>
-
   `;
 }
 

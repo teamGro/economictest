@@ -10,13 +10,13 @@ export default function createStartView (obj) {
       </div>
 
       <div class="test__cash">
-        <img src='img/cash.png' alt='американские доллары'>
+        <img src='img/cash.png' alt='американские доллары' data-rjs="3">
       </div>
       <div class="test__face">
-        <img src='img/face.png' alt='профиль известного предпринимателя'>
+        <img src='img/face.png' alt='профиль известного предпринимателя' data-rjs="3">
       </div>
       <div class="test__newspapper">
-        <img src='img/newspapper.png' alt='газета'>
+        <img src='img/newspapper.png' alt='газета' data-rjs="3">
       </div>
 
       <div>
@@ -26,3 +26,4 @@ export default function createStartView (obj) {
     </div>
   `;
 }
+
