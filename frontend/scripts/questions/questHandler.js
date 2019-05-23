@@ -20,7 +20,6 @@ export default class Question {
     let list = document.querySelector('.test__list');
     list.addEventListener('click', (e) => {
       let target = e.target;
-      console.log(target);
       if (target.tagName != 'A') return;
 
       let answer;

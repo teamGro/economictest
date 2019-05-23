@@ -1,7 +1,7 @@
 import { progress, getCurrentLevel } from '../src/utils';
 import createResultView from './resultView';
 import Question from '../questions/questHandler';
-import {Sharer} from '../src/sharer';
+import {Sharer} from '../src/sharer.min.js';
 
 export default class Result {
   constructor () {
