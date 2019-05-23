@@ -36,12 +36,6 @@ gulp.task('less', () => {
   .pipe(gulp.dest('public/styles'));
 });
 
-gulp.task('sass', () => {
-  return gulp.src('node_modules/bootstrap/scss/bootstrap.scss')
-  .pipe(sass())
-  .pipe(gulp.dest('public/styles'));
-});
-
 gulp.task('js', () => {
   return gulp.src('frontend/scripts/**/*.js')
       .pipe(plumber({

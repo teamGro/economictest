@@ -8,7 +8,7 @@
     "gulp": "./node_modules/.bin/gulp dev",
     "gulp-img": "./node_modules/.bin/gulp imgMin",
     "gulp-prod": "cross-env NODE_ENV=production ./node_modules/.bin/gulp",
-    "start": "nodemon back/index.js"
+    "start": "nodemon index.js"
   },
   "author": "",
   "license": "ISC",
