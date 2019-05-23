@@ -93,7 +93,7 @@ gulp.task('watch', () => {
   // gulp.watch('./forntend/assets/optiImg/**/*.{png,jpg}', gulp.series('webp'));
 });
 
-gulp.task('build', gulp.series('clean', gulp.parallel('less', 'copy', 'js', 'sass')));
+gulp.task('build', gulp.series('clean', gulp.parallel('less', 'copy', 'js')));
 
 gulp.task('serve', () => {
   browserSync.init({
