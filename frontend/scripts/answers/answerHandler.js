@@ -1,7 +1,7 @@
 import createAnswerView from './answerView';
 import {getCurrentLevel, allLevels} from '../src/utils';
 import Question from '../questions/questHandler';
-// import {resultHandler} from '../resultPage/resultHandler';
+import Result from '../resultPage/resultHandler';
 
 export default class Answer {
   constructor () {
@@ -36,7 +36,8 @@ export default class Answer {
       e.preventDefault();
 
       if (level == allLevels) {
-        return; // resultHandler();
+        let result = new Result();
+        return result.init();
       }
 
       level++;
