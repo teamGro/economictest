@@ -12,7 +12,7 @@ const plumber = require('gulp-plumber');
 const rollup = require('gulp-rollup');
 const remember = require('gulp-remember');
 const imagemin = require('gulp-imagemin');
-const imageminPngquant = require('imagemin-pngquant');
+const pngquant = require('imagemin-pngquant');
 const webp = require('gulp-webp');
 const sass = require('gulp-sass');
 
@@ -58,23 +58,21 @@ gulp.task('js', () => {
       .pipe(gulp.dest('./public/js'));
 });
 
-// gulp.task('images', function () {
-//   return gulp.src('./forntend/assets/img/*.png')//, {since: gulp.lastRun('images')}//D:/tima/projects/vc-project/forntend/assets/optiImg
-//   .pipe(imagemin([
-//     // imagemin.jpegtran({progressive: true}),
-//     imagemin.optipng({optimizationLevel: 5})
-//     // imagemin.svgo()
-//   ]))
-//   // .pipe(gulp.dest('./forntend/assets/optiImg'))
-//   .pipe(gulp.dest('public/img'));
-//   // done();
-// });
+gulp.task('images', function () {
+  return gulp.src('./forntend/assets/img/*.png')//, {since: gulp.lastRun('images')}//D:/tima/projects/vc-project/forntend/assets/optiImg
+      .pipe(imagemin({
+        progressive: true,
+        use: [pngquant()],
+        interlaced: true
+      }))
+      .pipe(gulp.dest('public/img'));
+});
 
-// gulp.task('webp', function () {
-//   return gulp.src('./forntend/assets/optiImg/*.jpg')
-//   .pipe(webp({quality: 70}))
-//   .pipe(gulp.dest('public/img/'));
-// });
+gulp.task('webp', function () {
+  return gulp.src('./forntend/assets/optiImg/*.jpg')
+  .pipe(webp({quality: 70}))
+  .pipe(gulp.dest('public/img/'));
+});
 
 gulp.task('clean', () => {
   return del(['public/styles', 'public/js']);
