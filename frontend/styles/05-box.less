@@ -1,0 +1,97 @@
+@import "01-variables.less";
+
+.box {
+  display: none;
+
+  &--zero {
+    transform: rotate(-8deg);
+  }
+
+  &--three {
+    transform: matrix(-0.98, -0.19, -0.19, 0.98, 0, 0);
+  }
+
+  &--five {
+    transform: rotate(-154deg);
+  }
+
+  &--seven {
+    transform: matrix(-0.98, -0.17, -0.17, 0.98, 0, 0);
+  }
+
+  &--eight {
+    transform: rotate(-7deg);
+  }
+}
+
+@media(min-width: @tablet-width){
+  .box {
+    display: block;
+
+    position: absolute;
+    bottom: auto;
+    right: 0;
+
+    width: 350px;
+    height: 350px;
+
+    &--three {
+      width: 275px;
+      right: 15px;
+    }
+
+    &--five {
+      right: -80px;
+    }
+
+    &--seven {
+      right: -45px;
+      width: 325px;
+    }
+
+    &--eight {
+      right: -65px;
+    }
+
+    & > img {
+      object-fit: scale-down;
+      object-position: center;
+    }
+  }
+}
+
+@media(min-width: @desctop-width) {
+  .box {
+    width: 520px;
+    height: 435px;
+
+    bottom: auto;
+    top: auto;
+    right: 25px;
+
+    &--zero {
+      right: 0;
+    }
+
+    &--three {
+      width: 320px;
+      height: 380px;
+    }
+
+    &--five {
+      right: -80px;
+      height: 260px;
+      width: 405px;
+    }
+
+    &--seven {
+      width: 405px;
+      right: -50px;
+    }
+
+    &--eight {
+      height: 380px;
+      right: -85px;
+    }
+  }
+}

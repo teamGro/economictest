@@ -1,0 +1,304 @@
+@import "01-variables.less";
+
+.test {
+  display: flex;;
+  flex-direction: column;
+
+  position: relative;
+  padding: 50px 15px 40px;
+
+  background-image: url('../img/test-bg.png');
+  background-position: center;
+  background-size: cover;
+  box-shadow: 0px 30px 40px rgba(133, 73, 86, 0.210598), 0px 0px 4px rgba(0, 0, 0, 0.0942595);
+
+  width: 90%;
+  overflow: hidden;
+
+  &--game {
+    padding-top: 0;
+  }
+
+  &__wrapper {
+    position: relative;
+
+    min-width: 300px;
+    max-width: 430px;
+
+    margin-bottom: 275px;
+  }
+
+  &__describe {
+    padding: 6px 13.5px;
+    color: #FFFFFF;
+    font-size: 18px;
+    line-height: 21px;
+    background: #E25A76;
+    border: 1px solid #E25A76;
+    width: 65px;
+
+    position: absolute;
+    right: 5%;
+    top: -35px;
+
+    &::before {
+    content: '';
+    position: absolute;
+    border-style: solid;
+    border-color: transparent;
+    bottom: -12px;
+    border-width: 0 0 12px 12px;
+    border-left-color: #BA4961;
+    right: 0;
+    }
+  }
+
+  &__title {
+    font-size: 30px;
+    line-height: 35px;
+    font-weight: 900;
+    margin-bottom: 15px;
+  }
+
+  &__subtitle {
+    font-size: 18px;
+    line-height: 27px;
+  }
+
+  &__cash,
+  &__face,
+  &__newspapper {
+    position: absolute;
+  }
+
+  &__cash {
+    width: 195px;
+    height: 145px;
+
+    left: 385px;
+    bottom: 130px;
+    left: 45%;
+    top: 50%;
+  }
+
+  &__face {
+    width: 95px;
+    height: 115px;
+
+    display: none;
+  }
+
+  &__newspapper {
+    display: none;
+  }
+
+  &__start {
+    font-size: 20px;
+    line-height: 23px;
+    font-weight: 900;
+
+    padding: 16px 40px;
+  }
+
+  &__wrap {
+    width: 100%;
+  }
+
+  &__level {
+    display: inline-block;
+    margin-top: 25px;
+  }
+
+  &__list {
+    margin-bottom: 65px;
+    animation: appear 0.5s linear;
+  }
+
+  &__question {
+    font-size: 26px;
+    line-height: 36px;
+    font-weight: 500;
+
+    margin-top: 16px;
+    margin-bottom: 30px;
+    animation: appear linear 0.5s;
+
+    &--anime {
+      animation: none;
+    }
+  }
+
+  &__answer {
+    margin-bottom: 30px;
+
+    &--right {
+      border: 2px solid #43A457;
+    }
+
+    &--loose {
+      border: 2px solid #E25A76;
+    }
+  }
+
+  &__text {
+    font-size: 16px;
+    line-height: 23px;
+    margin-bottom: 90px;
+    animation: appear linear 0.5s;
+
+    & > a,
+    & > b > a {
+      border-bottom: 1px solid blue;
+      color: blue;
+      cursor: pointer;
+
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  &__next {
+    font: inherit;
+    font-size: 20px;
+    line-height: 26px;
+    font-weight: bold;
+    vertical-align: middle;
+
+    background-color: transparent;
+    margin-bottom: 30px;
+
+    border: none;
+    box-shadow: none;
+
+    animation: show linear 0.5s;
+  }
+
+  &__arrow {
+    display: inline-block;
+    margin-left: 15px;
+    font-size: 26px;
+  }
+
+  &__result {
+    font-weight: 900;
+    font-size: 36px;
+    line-height: 42px;
+
+    margin-top: 60px;
+    margin-bottom: 40px;
+  }
+
+  &__repeat {
+    margin-bottom: 25px;
+    z-index: 5;
+
+    font: inherit;
+    font-weight: bold;
+    font-size: 20px;
+    line-height: 23px;
+
+    background-color: transparent;
+
+    border: none;
+    box-shadow: none;
+
+    & > i {
+      color: #E25A76;
+    }
+  }
+}
+
+@keyframes show {
+    from {
+      margin-left: -500px;
+    }
+    to {
+      margin-left: 0;
+    }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media(min-width: @tablet-width){
+  .test {
+    padding-top: 70px;
+    padding-left: 30px;
+    padding-right: 30px;
+
+    &--game {
+      justify-content: center;
+      padding-top: 0;
+    }
+
+    &__wrapper {
+      max-width: 510px;
+      margin-bottom: 205px;
+    }
+
+    &__face {
+      display: inline-block;
+
+      left: 75%;
+      top: 15%;
+    }
+
+    &__wrap {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+  }
+}
+
+@media(min-width: 992px) {
+  .test {
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 90px;
+
+    &--game {
+      padding-top: 0;
+    }
+
+    &__newspapper {
+      display: inline-block;
+
+      width: 270px;
+      height: 255px;
+
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+  }
+}
+
+@media(min-width: @desctop-width) {
+  .test {
+
+    &__wrap--result {
+      max-width: 390px;
+    }
+
+    &__cash {
+      left: 30%;
+    }
+
+    &__face {
+      top: 5%;
+      left: 55%;
+    }
+
+    &__newspapper {
+      width: 435px;
+      height: 415px;
+    }
+  }
+}
