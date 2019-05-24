@@ -6,7 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gulp": "./node_modules/.bin/gulp dev",
-    "gulp-img": "./node_modules/.bin/gulp images",
     "gulp-prod": "cross-env NODE_ENV=production ./node_modules/.bin/gulp",
     "start": "node index.js"
   },
