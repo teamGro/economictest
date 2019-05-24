@@ -81,30 +81,3 @@ export default function createResultView (obj) {
     </div>
   `;
 }
-
-/*
-
-<button class="tw"  data-hashtags="awesome, sharer.js" >Share on Twitter</button>
-
-*/
-
-//
-
-// <a onclick="Share.facebook('URL','TITLE','IMG_PATH','DESC')"> {шарь меня полностью}</a>
-
-// <a class="socials__link" href="#">
-//   <span class="visually-hidden">fb</span>
-//   <i class="socials__icon fab fa-facebook-f"></i>
-//   <span class="socials__text">Поделиться</span>
-// </a>
-
-// <a class="socials__link" id="my-share" href="vk.com">
-//   <span class="visually-hidden">vk</span>
-//   <i class="socials__icon fab fa-vk"></i>
-// </a>
-
-// <a class="socials__link" href="https://twitter.com/intent/tweet?original_referer=http%3A%2F%2Ffiddle.jshell.net%2F_display%2F&text=${title}&url=${site}" target="_blank" >
-//   <span class="visually-hidden">twitter</span>
-//   <i class="socials__icon fab fa-twitter"></i>
-// </a>
-
