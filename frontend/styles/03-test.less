@@ -1,28 +1,32 @@
 @import "01-variables.less";
 
 .test {
-  display: flex;;
+  display: flex;
   flex-direction: column;
 
+  min-height: 600px;
+
   position: relative;
-  padding: 50px 15px 40px;
+  padding: 50px 15px 0;
 
-  background-image: url('../img/test-bg.png');
+  background-image: url("../img/test-bg.png");
 
-  @media (-webkit-min-device-pixel-ratio: 2),
-  (min-resolution: 192dpi) {
-    background-image: url('../img/test-bg@2x.png');
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+    background-image: url("../img/test-bg@2x.png");
   }
 
   background-position: center;
   background-size: cover;
-  box-shadow: 0px 30px 40px rgba(133, 73, 86, 0.210598), 0px 0px 4px rgba(0, 0, 0, 0.0942595);
+  box-shadow: 0px 30px 40px rgba(133, 73, 86, 0.210598),
+    0px 0px 4px rgba(0, 0, 0, 0.0942595);
 
-  width: 90%;
+  min-width: 100%;
   overflow: hidden;
 
   &--game {
     padding-top: 0;
+
+    //border: 1px solid black;
   }
 
   &__wrapper {
@@ -31,31 +35,31 @@
     min-width: 300px;
     max-width: 430px;
 
-    margin-bottom: 275px;
+    margin-bottom: 30px;
   }
 
   &__describe {
     padding: 6px 13.5px;
-    color: #FFFFFF;
+    color: #ffffff;
     font-size: 18px;
     line-height: 21px;
-    background: #E25A76;
-    border: 1px solid #E25A76;
+    background: #e25a76;
+    border: 1px solid #e25a76;
     width: 65px;
 
     position: absolute;
-    right: 10%;
+    right: 0;
     top: -35px;
 
     &::before {
-    content: '';
-    position: absolute;
-    border-style: solid;
-    border-color: transparent;
-    bottom: -12px;
-    border-width: 0 0 12px 12px;
-    border-left-color: #BA4961;
-    right: 0;
+      content: "";
+      position: absolute;
+      border-style: solid;
+      border-color: transparent;
+      bottom: -12px;
+      border-width: 0 0 12px 12px;
+      border-left-color: #ba4961;
+      right: 0;
     }
   }
 
@@ -85,6 +89,8 @@
     bottom: 130px;
     left: 45%;
     top: 50%;
+
+    display: none;
   }
 
   &__face {
@@ -95,7 +101,9 @@
   }
 
   &__newspapper {
-    display: none;
+    bottom: -10px;
+    right: 0;
+    width: 250px;
   }
 
   &__start {
@@ -104,10 +112,18 @@
     font-weight: 900;
 
     padding: 16px 40px;
+    cursor: pointer;
+
+    &:hover,
+    &:focus {
+      border: 2px solid #43a457;
+      outline: none;
+    }
   }
 
   &__wrap {
     width: 100%;
+    height: 100%;
   }
 
   &__level {
@@ -116,41 +132,50 @@
   }
 
   &__list {
-    margin-bottom: 65px;
-    animation: appear 0.3s linear;
+    margin-bottom: 30px;
+    margin-left: -1000px;
+    width: 100%;
+    //animation: appear 0.3s linear;
   }
 
   &__question {
     font-size: 26px;
     line-height: 36px;
-    font-weight: 500;
+    font-weight: 700;
 
     margin-top: 16px;
     margin-bottom: 30px;
-    animation: appear linear 0.3s;
+    margin-left: -1000px;
+    width: 100%;
+    //animation: appear linear 0.3s;
 
     &--anime {
       animation: none;
+      margin-left: 0;
     }
   }
 
   &__answer {
+    .answer-style;
     margin-bottom: 30px;
 
     &--right {
-      border: 2px solid #43A457;
+      border: 2px solid #43a457;
     }
 
     &--loose {
-      border: 2px solid #E25A76;
+      border: 2px solid #e25a76;
     }
   }
 
   &__text {
     font-size: 16px;
     line-height: 23px;
-    margin-bottom: 90px;
-    animation: appear linear 0.3s;
+    margin-bottom: 40px;
+    width: 100%;
+    //animation: appear linear 0.3s;
+    margin-left: -1000px;
+    //opacity: 0;
 
     & > a,
     & > b > a {
@@ -172,12 +197,20 @@
     vertical-align: middle;
 
     background-color: transparent;
-    margin-bottom: 30px;
+    margin-bottom: 15px;
 
     border: none;
     box-shadow: none;
+    //transform: translateX(-500px);
+    margin-left: -1000px;
+    //animation: show linear 0.5s;
+    cursor: pointer;
 
-    animation: show linear 0.5s;
+    &:hover,
+    &:focus {
+      outline: none;
+      color: #202020;
+    }
   }
 
   &__arrow {
@@ -196,7 +229,7 @@
   }
 
   &__repeat {
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     z-index: 5;
 
     font: inherit;
@@ -208,21 +241,29 @@
 
     border: none;
     box-shadow: none;
-    animation: show linear 0.5s;
+    //animation: show linear 0.5s;
+    margin-left: -500px;
+    cursor: pointer;
 
     & > i {
-      color: #E25A76;
+      color: #e25a76;
+    }
+
+    &:hover,
+    &:focus {
+      color: #e25a76;
+      outline: none;
     }
   }
 }
 
 @keyframes show {
-    from {
-      margin-left: -500px;
-    }
-    to {
-      margin-left: 0;
-    }
+  from {
+    margin-left: -500px;
+  }
+  to {
+    margin-left: 0;
+  }
 }
 
 @keyframes appear {
@@ -234,45 +275,55 @@
   }
 }
 
-@media(min-width: 576px){
+@media (min-width: 580px) {
   .test {
-    &__describe {
-      right: 5%;
+    &__newspapper {
+      width: 300px;
     }
   }
 }
 
-@media(min-width: @tablet-width){
+@media (min-width: @tablet-width) {
   .test {
     padding-top: 70px;
     padding-left: 30px;
     padding-right: 30px;
 
     &--game {
-      justify-content: center;
       padding-top: 0;
     }
 
     &__wrapper {
       max-width: 510px;
-      margin-bottom: 205px;
+      margin-bottom: 280px;
     }
 
     &__face {
       display: inline-block;
 
       left: 75%;
-      top: 15%;
+      top: 20%;
+    }
+
+    &__cash {
+      display: inline-block;
+      left: 20%;
     }
 
     &__wrap {
       max-width: 500px;
       margin: 0 auto;
     }
+
+    &__next,
+    &__repeat {
+      position: absolute;
+      bottom: 40px;
+    }
   }
 }
 
-@media(min-width: 992px) {
+@media (min-width: 992px) {
   .test {
     padding-left: 50px;
     padding-right: 50px;
@@ -295,11 +346,16 @@
   }
 }
 
-@media(min-width: @desctop-width) {
+@media (min-width: @desctop-width) {
   .test {
-
     &__wrap--result {
       max-width: 390px;
+    }
+
+    &__title {
+      font-size: 34px;
+      line-height: 40px;
+      font-weight: 900;
     }
 
     &__cash {
@@ -307,13 +363,19 @@
     }
 
     &__face {
-      top: 5%;
-      left: 55%;
+      top: 50px;
+      left: auto;
+      right: 316px;
     }
 
     &__newspapper {
       width: 435px;
       height: 415px;
+    }
+
+    &__next,
+    &__repeat {
+      bottom: 50px;
     }
   }
 }

@@ -1,4 +1,4 @@
-export function getCurrentLevel (level) {
+export function getCurrentLevel(level) {
   return level;
 }
 

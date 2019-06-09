@@ -24,12 +24,13 @@
   }
 }
 
-@media(min-width: @tablet-width){
+@media (min-width: @tablet-width) {
   .box {
     display: block;
 
     position: absolute;
-    bottom: auto;
+    top: 50%;
+    margin-top: -175px;
     right: 0;
 
     width: 350px;
@@ -51,6 +52,7 @@
 
     &--eight {
       right: -65px;
+      top: 60%;
     }
 
     & > img {
@@ -60,14 +62,11 @@
   }
 }
 
-@media(min-width: @desctop-width) {
+@media (min-width: @desctop-width) {
   .box {
     width: 520px;
     height: 435px;
-
-    bottom: auto;
-    top: auto;
-    right: 25px;
+    margin-top: -217.5px;
 
     &--zero {
       right: 0;
@@ -76,12 +75,14 @@
     &--three {
       width: 320px;
       height: 380px;
+      margin-top: -190px;
     }
 
     &--five {
       right: -80px;
       height: 260px;
       width: 405px;
+      margin-top: -130px;
     }
 
     &--seven {
@@ -92,6 +93,7 @@
     &--eight {
       height: 380px;
       right: -85px;
+      margin-top: -190px;
     }
   }
 }
