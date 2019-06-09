@@ -13,7 +13,7 @@ export default function createAnswerView(obj, userAnswer) {
         <span class="test__level">${obj.level}</span>
         <p class="test__question test__question--anime">${obj.question}</p>
         <p class="test__answer">${userAnswer}</p>
-        <p class="test__text"><b>${text}</b> ${obj.answers.commonText}</p>
+        <p class="test__text">${text} ${obj.answers.commonText}</p>
         <button class="test__next">
           ${
             obj.btnTitle

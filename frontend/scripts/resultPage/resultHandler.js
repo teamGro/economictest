@@ -15,8 +15,7 @@ export default class Result {
     container.innerHTML = createResultView(this.data.result);
     anime({
       targets: ".test__repeat",
-      translateX: 500,
-      delay: 500
+      translateX: 500
     });
     return;
   }

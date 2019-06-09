@@ -22,12 +22,6 @@ export default class Answer {
       easing: "easeInOutExpo"
     });
 
-    // anime({
-    //   targets: ".test__text",
-    //   opacity: 1,
-    //   delay: 500
-    // });
-
     return;
   }
 
